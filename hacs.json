@@ -1,13 +1,7 @@
 {
   "name": "Temperature Bar Card",
-  "hacs": "1.6.0",
-  "domains": [],
-  "iot_class": "Local Polling", 
-  "homeassistant": "2021.3.0",
   "render_readme": true,
   "filename": "temperature-bar-card.js",
-  "country": ["US", "GB", "CA", "AU", "DE", "FR", "IT", "ES", "NL", "SE", "DK", "NO", "FI"],
-  "content_in_root": true,
-  "persistent_directory": false,
-  "zip_release": false
+  "homeassistant": "2021.3.0",
+  "content_in_root": true
 }
