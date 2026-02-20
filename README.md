@@ -4,98 +4,63 @@
 [![License][license-shield]][license]
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
 
-A beautiful custom Home Assistant Lovelace card for displaying temperature entities with gradient backgrounds.
+A custom Home Assistant Lovelace card that displays temperature sensors as colored bars. Each bar fills based on the current temperature and changes color through a gradient — blue for cold, green for comfortable, red for hot — so you can see the state of every room at a glance.
 
-## Features
+## Quick Start
 
-- **Temperature-based color coding** - Colors automatically change from cold blue to hot red
-- **Fahrenheit & Celsius support** - Choose your preferred unit with automatic conversion
-- **Fully customizable** - Custom thresholds, colors, icons, and text styling
-- **Responsive design** - Compact bars that work on all screen sizes
-- **Optional icons** - Show/hide thermometer icons with customization
-- **Easy configuration** - Simple YAML setup with sensible defaults
-
-## Installation
-
-### HACS (Recommended)
-
-1. Open HACS in Home Assistant
-2. Go to "Frontend"
-3. Click "+" and search for "Temperature Bar Card"
-4. Install the card
-5. Restart Home Assistant
-6. Add the card to your dashboard
-
-### Manual Installation
-
-1. Download `temperature-bar-card.js`
-2. Copy to `/config/www/`
-3. Add resource in `configuration.yaml`:
-
-```yaml
-lovelace:
-  resources:
-    - url: /local/temperature-bar-card.js
-      type: module
-```
-
-## Basic Configuration
+1. Install via [HACS](docs/installation.md#hacs-recommended) or [manually](docs/installation.md#manual-installation)
+2. Add this to a dashboard:
 
 ```yaml
 type: custom:temperature-bar-card
-title: "Room Temperatures"
 entities:
   - sensor.living_room_temperature
   - sensor.bedroom_temperature
 ```
 
-## Advanced Configuration
+That's it. The card uses sensible Fahrenheit defaults. For Celsius, add `unit: celsius`.
 
-```yaml
-type: custom:temperature-bar-card
-title: "Climate Control"
-unit: celsius
-text_color: rgba(255,255,255,0.9)
-icon: mdi:home-thermometer
-show_icon: true
-min_temp: -10
-max_temp: 45
-temperature_thresholds: [35, 30, 25, 20, 15, 10, 0]
-temperature_colors:
-  - rgba(255,0,0,1)      # Very hot
-  - rgba(255,165,0,1)    # Hot
-  - rgba(255,255,0,1)    # Warm
-  - rgba(0,255,0,1)      # Perfect
-  - rgba(0,255,255,1)    # Cool
-  - rgba(0,0,255,1)      # Cold
-  - rgba(128,0,128,1)    # Very cold
-  - rgba(75,0,130,1)     # Freezing
-entities:
-  - entity: sensor.outdoor_temperature
-    name: "Outside"
-  - entity: sensor.indoor_temperature
-    name: "Inside"
-```
+## Documentation
 
-## Configuration Options
+| Guide | What's inside |
+|-------|---------------|
+| [Installation](docs/installation.md) | HACS setup, manual install, adding to dashboards, updating |
+| [Configuration](docs/configuration.md) | All options, entity formats, unit system, color & threshold system |
+| [Examples](docs/examples.md) | Copy-paste YAML configs for common setups |
+| [Troubleshooting](docs/troubleshooting.md) | Common problems and how to fix them |
 
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `entities` | list | **Required** | List of temperature entity IDs or objects with `entity` and `name` |
-| `title` | string | `""` | Card title |
-| `unit` | string | `"fahrenheit"` | Display unit: `"fahrenheit"` or `"celsius"` |
-| `min_temp` | number | 0 (F) / -20 (C) | Minimum temperature for bar range |
-| `max_temp` | number | 120 (F) / 50 (C) | Maximum temperature for bar range |
-| `temperature_thresholds` | list | See below | Descending temperature breakpoints for color buckets |
-| `temperature_colors` | list | See below | Colors matching each threshold bucket (one more than thresholds) |
-| `icon` | string | `"mdi:thermometer"` | MDI icon name |
-| `show_icon` | boolean | `true` | Show icon next to entity name |
-| `text_color` | string | `"rgba(255,255,255,0.9)"` | Text color on the bar |
+## Features
 
-### Default Thresholds
+- **Automatic color coding** — bars change color from cold (blue) to hot (red) based on temperature
+- **Fahrenheit & Celsius** — set `unit: celsius` and defaults adjust automatically
+- **Auto-conversion** — sensors reporting in a different unit are converted on the fly
+- **Customizable thresholds & colors** — define your own breakpoints and color palette
+- **Optional icons** — show MDI icons next to entity names
+- **Compact & responsive** — works on desktop and mobile dashboards
 
-**Fahrenheit:** `[95, 85, 75, 65, 55, 45, 32]`
-**Celsius:** `[35, 30, 25, 20, 15, 10, 0]`
+## Configuration at a Glance
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `entities` | *required* | List of `sensor.*` entity IDs or `{entity, name}` objects |
+| `title` | `""` | Card title |
+| `unit` | `"fahrenheit"` | `"fahrenheit"` or `"celsius"` |
+| `min_temp` / `max_temp` | auto | Bar width range (auto-set per unit) |
+| `temperature_thresholds` | auto | Descending breakpoints for color buckets |
+| `temperature_colors` | auto | One more color than thresholds |
+| `icon` | `"mdi:thermometer"` | MDI icon name |
+| `show_icon` | `true` | Show/hide icons |
+| `text_color` | `"rgba(255,255,255,0.9)"` | CSS color for bar text |
+
+See [Configuration](docs/configuration.md) for full details.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or pull request on [GitHub](https://github.com/acato/temperature-bar-card).
+
+## License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 [releases-shield]: https://img.shields.io/github/release/acato/temperature-bar-card.svg?style=for-the-badge
 [releases]: https://github.com/acato/temperature-bar-card/releases
