@@ -1,4 +1,4 @@
-const CARD_VERSION = '1.1.0';
+const CARD_VERSION = '1.2.0';
 
 const DEFAULT_THRESHOLDS_F = [95, 85, 75, 65, 55, 45, 32];
 const DEFAULT_THRESHOLDS_C = [35, 30, 25, 20, 15, 10, 0];
