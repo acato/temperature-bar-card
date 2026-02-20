@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2026-02-20
+
+### Added
+- User documentation suite in `docs/` folder
+  - Installation guide (HACS custom repo setup, manual install, updating)
+  - Configuration reference (all options, color/threshold system explained)
+  - Examples (10 copy-paste YAML recipes for common setups)
+  - Troubleshooting guide (common problems and fixes)
+
+### Changed
+- Rewrote README.md as a user-facing landing page with quick start and doc links
+- Rewrote info.md for a cleaner HACS storefront page with links to full docs
+
 ## [1.1.0] - 2024-01-15
 
 ### Added
