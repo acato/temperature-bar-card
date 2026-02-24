@@ -14,9 +14,12 @@ A custom Home Assistant Lovelace card that displays temperature sensors as color
 ```yaml
 type: custom:temperature-bar-card
 entities:
-  - sensor.living_room_temperature
+  - sensor.bonus_room_temperature
   - sensor.bedroom_temperature
+  - sensor.outside_south_temperature
 ```
+<img width="1026" height="664" alt="image" src="https://github.com/user-attachments/assets/05d66fb4-e211-4bdc-871a-24f7a32cdb2e" />
+
 
 That's it. The card uses sensible Fahrenheit defaults. For Celsius, add `unit: celsius`.
 
