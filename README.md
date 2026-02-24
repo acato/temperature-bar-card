@@ -18,7 +18,8 @@ entities:
   - sensor.bedroom_temperature
   - sensor.outside_south_temperature
 ```
-<img width="1026" height="664" alt="image" src="https://github.com/user-attachments/assets/05d66fb4-e211-4bdc-871a-24f7a32cdb2e" />
+<img width="966" height="522" alt="image" src="https://github.com/user-attachments/assets/379023fe-0443-42b2-ad8a-f9884d1c7cf3" />
+
 
 
 That's it. The card uses sensible Fahrenheit defaults. For Celsius, add `unit: celsius`.
